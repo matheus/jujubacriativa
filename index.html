@@ -9,7 +9,7 @@
         content="Jujuba Criativa cria produtos únicos e personalizados em impressão 3D. Placas, decorações e muito mais feitos sob medida para você." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Dancing+Script:wght@600;700&display=swap"
         rel="stylesheet" />
 
     <style>
@@ -22,36 +22,44 @@
 
         /* ===== DESIGN TOKENS ===== */
         :root {
-            --lilac-50: #faf5ff;
+            /* Paleta inspirada na logo: rosa, lilás, dourado/cobre */
+            --rose-50: #fff5f7;
+            --rose-100: #ffe4ec;
+            --rose-200: #fecdd7;
+            --rose-300: #fda4b8;
+            --rose-400: #f87198;
+            --rose-500: #e84478;
+
             --lilac-100: #f3e8ff;
             --lilac-200: #e9d5ff;
             --lilac-300: #d8b4fe;
             --lilac-400: #c084fc;
             --lilac-500: #a855f7;
             --lilac-600: #9333ea;
-            --lilac-700: #7e22ce;
-            --lilac-800: #6b21a8;
-            --lilac-900: #581c87;
 
-            --bg-primary: #0d0a14;
-            --bg-card: rgba(25, 18, 40, 0.7);
-            --bg-card-hover: rgba(35, 25, 55, 0.85);
-            --border-subtle: rgba(168, 85, 247, 0.15);
-            --border-glow: rgba(168, 85, 247, 0.4);
+            --copper-300: #d4a574;
+            --copper-400: #c4956a;
+            --copper-500: #b07d50;
 
-            --text-primary: #f3e8ff;
-            --text-secondary: #b8a4d6;
-            --text-muted: #7c6a96;
+            --bg-primary: #12080f;
+            --bg-card: rgba(30, 15, 28, 0.7);
+            --bg-card-hover: rgba(45, 22, 40, 0.85);
+            --border-subtle: rgba(200, 130, 180, 0.12);
+            --border-glow: rgba(200, 130, 180, 0.35);
 
-            --gradient-main: linear-gradient(135deg, #9333ea 0%, #c084fc 50%, #e879f9 100%);
-            --gradient-card: linear-gradient(135deg, rgba(147, 51, 234, 0.08) 0%, rgba(192, 132, 252, 0.04) 100%);
-            --gradient-bg: radial-gradient(ellipse at 50% 0%, rgba(147, 51, 234, 0.15) 0%, transparent 60%);
+            --text-primary: #f8eef5;
+            --text-secondary: #c8a8be;
+            --text-muted: #8a6a7e;
 
-            --shadow-glow: 0 0 40px rgba(147, 51, 234, 0.2);
-            --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(168, 85, 247, 0.08);
+            --gradient-main: linear-gradient(135deg, #d4748c 0%, #c084fc 50%, #d4a574 100%);
+            --gradient-rose-lilac: linear-gradient(135deg, rgba(212, 116, 140, 0.15) 0%, rgba(192, 132, 252, 0.08) 100%);
+            --gradient-bg: radial-gradient(ellipse at 50% 0%, rgba(212, 116, 140, 0.12) 0%, transparent 60%);
+
+            --shadow-glow: 0 0 40px rgba(200, 130, 180, 0.15);
+            --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(200, 130, 180, 0.06);
 
             --font-main: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-accent: 'Space Grotesk', monospace;
+            --font-accent: 'Dancing Script', cursive;
 
             --radius-sm: 12px;
             --radius-md: 16px;
@@ -89,7 +97,7 @@
             transform: translateX(-50%);
             width: 800px;
             height: 800px;
-            background: radial-gradient(circle, rgba(147, 51, 234, 0.12) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(212, 116, 140, 0.1) 0%, transparent 70%);
             animation: bgPulse 8s ease-in-out infinite;
         }
 
@@ -101,7 +109,7 @@
             transform: translateX(-50%);
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(232, 121, 249, 0.08) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(192, 132, 252, 0.07) 0%, transparent 70%);
             animation: bgPulse 8s ease-in-out infinite 4s;
         }
 
@@ -110,37 +118,90 @@
             50% { opacity: 1; transform: translateX(-50%) scale(1.15); }
         }
 
-        /* floating orbs */
+        /* floating orbs with watercolor-like colors */
         .orb {
             position: absolute;
             border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.3;
-            animation: orbFloat 12s ease-in-out infinite;
+            filter: blur(70px);
+            opacity: 0.25;
+            animation: orbFloat 14s ease-in-out infinite;
         }
         .orb-1 {
-            width: 200px; height: 200px;
-            background: var(--lilac-600);
-            top: 10%; left: -5%;
+            width: 220px; height: 220px;
+            background: #d4748c;
+            top: 8%; left: -5%;
             animation-delay: 0s;
         }
         .orb-2 {
-            width: 150px; height: 150px;
-            background: #e879f9;
-            top: 50%; right: -5%;
-            animation-delay: 4s;
+            width: 170px; height: 170px;
+            background: #c084fc;
+            top: 45%; right: -8%;
+            animation-delay: 5s;
         }
         .orb-3 {
-            width: 180px; height: 180px;
-            background: var(--lilac-500);
-            bottom: 10%; left: 10%;
-            animation-delay: 8s;
+            width: 190px; height: 190px;
+            background: #d4a574;
+            bottom: 8%; left: 15%;
+            animation-delay: 9s;
         }
 
         @keyframes orbFloat {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
-            33% { transform: translateY(-30px) rotate(5deg); }
-            66% { transform: translateY(20px) rotate(-3deg); }
+            33% { transform: translateY(-25px) rotate(4deg); }
+            66% { transform: translateY(18px) rotate(-3deg); }
+        }
+
+        /* ===== SPARKLE PARTICLES ===== */
+        .sparkle-field {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            opacity: 0;
+        }
+
+        /* Four-pointed star sparkles like the logo */
+        .sparkle.star {
+            width: 0; height: 0;
+            border-radius: 0;
+            background: none;
+        }
+        .sparkle.star::before,
+        .sparkle.star::after {
+            content: '✦';
+            position: absolute;
+            font-size: 12px;
+        }
+
+        .sparkle:nth-child(1) { top: 12%; left: 18%; background: var(--copper-300); animation: sparkle 5s ease-in-out infinite 0s; }
+        .sparkle:nth-child(2) { top: 28%; left: 82%; background: var(--lilac-300); animation: sparkle 4s ease-in-out infinite 1.2s; }
+        .sparkle:nth-child(3) { top: 50%; left: 8%; background: var(--rose-300); animation: sparkle 6s ease-in-out infinite 2.4s; }
+        .sparkle:nth-child(4) { top: 68%; left: 78%; background: var(--copper-300); animation: sparkle 4.5s ease-in-out infinite 0.8s; }
+        .sparkle:nth-child(5) { top: 82%; left: 42%; background: var(--lilac-300); animation: sparkle 5.5s ease-in-out infinite 3.2s; }
+        .sparkle:nth-child(6) { top: 18%; left: 55%; background: var(--rose-200); animation: sparkle 4s ease-in-out infinite 1.8s; }
+        .sparkle:nth-child(7) { top: 40%; left: 92%; background: var(--copper-400); animation: sparkle 5s ease-in-out infinite 2.8s; }
+        .sparkle:nth-child(8) { top: 88%; left: 12%; background: var(--lilac-200); animation: sparkle 6s ease-in-out infinite 4s; }
+        .sparkle:nth-child(9) { top: 35%; left: 35%; color: var(--copper-300); animation: sparkleStar 6s ease-in-out infinite 1s; }
+        .sparkle:nth-child(10) { top: 65%; left: 65%; color: var(--lilac-300); animation: sparkleStar 5s ease-in-out infinite 3s; }
+        .sparkle:nth-child(11) { top: 15%; left: 72%; color: var(--rose-300); animation: sparkleStar 7s ease-in-out infinite 0.5s; }
+        .sparkle:nth-child(12) { top: 78%; left: 25%; color: var(--copper-300); animation: sparkleStar 5.5s ease-in-out infinite 2s; }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 0.7; transform: scale(1.3); }
+        }
+
+        @keyframes sparkleStar {
+            0%, 100% { opacity: 0; transform: scale(0.3) rotate(0deg); }
+            50% { opacity: 0.6; transform: scale(1) rotate(45deg); }
         }
 
         /* ===== MAIN CONTAINER ===== */
@@ -149,79 +210,70 @@
             z-index: 1;
             max-width: 480px;
             margin: 0 auto;
-            padding: 40px 20px 60px;
+            padding: 32px 20px 60px;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
         }
 
-        /* ===== PROFILE / LOGO ===== */
+        /* ===== LOGO / PROFILE ===== */
         .profile {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 32px;
+            margin-bottom: 28px;
         }
 
-        .avatar-ring {
+        .logo-wrapper {
             position: relative;
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            padding: 3px;
-            background: var(--gradient-main);
-            margin-bottom: 20px;
-            animation: ringRotate 6s linear infinite;
+            width: 200px;
+            max-width: 80vw;
+            margin-bottom: 16px;
+            animation: logoFloat 6s ease-in-out infinite;
         }
 
-        @keyframes ringRotate {
-            0% { filter: hue-rotate(0deg); }
-            100% { filter: hue-rotate(360deg); }
-        }
-
-        .avatar-ring img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--bg-primary);
-        }
-
-        .avatar-ring::after {
+        .logo-wrapper::after {
             content: '';
             position: absolute;
-            inset: -4px;
-            border-radius: 50%;
+            inset: -8px;
+            border-radius: var(--radius-lg);
             background: var(--gradient-main);
             z-index: -1;
-            filter: blur(16px);
-            opacity: 0.5;
+            filter: blur(24px);
+            opacity: 0.3;
+            animation: logoGlow 4s ease-in-out infinite;
         }
 
-        .brand-name {
-            font-family: var(--font-accent);
-            font-weight: 700;
-            font-size: 1.75rem;
-            background: var(--gradient-main);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.5px;
-            margin-bottom: 8px;
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        @keyframes logoGlow {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.45; }
+        }
+
+        .logo-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: var(--radius-lg);
         }
 
         .brand-tagline {
             font-size: 0.95rem;
+            font-weight: 400;
             color: var(--text-secondary);
             text-align: center;
-            line-height: 1.5;
-            max-width: 320px;
+            line-height: 1.6;
+            max-width: 340px;
         }
 
         .brand-tagline .emoji-3d {
             display: inline-block;
-            animation: bounce3d 2s ease-in-out infinite;
+            animation: bounce3d 2.5s ease-in-out infinite;
         }
 
         @keyframes bounce3d {
@@ -229,7 +281,7 @@
             50% { transform: translateY(-3px) scale(1.1); }
         }
 
-        /* ===== BADGE ===== */
+        /* ===== BADGE ROW ===== */
         .badge-row {
             display: flex;
             gap: 8px;
@@ -243,11 +295,11 @@
             align-items: center;
             gap: 5px;
             padding: 6px 14px;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 600;
-            color: var(--lilac-300);
-            background: rgba(147, 51, 234, 0.1);
-            border: 1px solid rgba(147, 51, 234, 0.2);
+            color: var(--rose-300);
+            background: rgba(212, 116, 140, 0.08);
+            border: 1px solid rgba(212, 116, 140, 0.18);
             border-radius: var(--radius-full);
             letter-spacing: 0.5px;
             text-transform: uppercase;
@@ -257,9 +309,23 @@
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            background: var(--lilac-400);
+            background: var(--rose-400);
             animation: dotPulse 2s ease-in-out infinite;
         }
+
+        .badge:nth-child(2) {
+            color: var(--lilac-300);
+            background: rgba(192, 132, 252, 0.08);
+            border-color: rgba(192, 132, 252, 0.18);
+        }
+        .badge:nth-child(2) .dot { background: var(--lilac-400); }
+
+        .badge:nth-child(3) {
+            color: var(--copper-300);
+            background: rgba(212, 165, 116, 0.08);
+            border-color: rgba(212, 165, 116, 0.18);
+        }
+        .badge:nth-child(3) .dot { background: var(--copper-300); }
 
         @keyframes dotPulse {
             0%, 100% { opacity: 1; }
@@ -277,7 +343,6 @@
         }
 
         .section-title span {
-            font-family: var(--font-accent);
             font-size: 0.7rem;
             font-weight: 700;
             color: var(--text-muted);
@@ -325,7 +390,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: var(--gradient-card);
+            background: var(--gradient-rose-lilac);
             opacity: 0;
             transition: opacity 0.3s ease;
         }
@@ -353,7 +418,7 @@
             border-radius: var(--radius-sm);
             overflow: hidden;
             flex-shrink: 0;
-            border: 1px solid rgba(168, 85, 247, 0.15);
+            border: 1px solid rgba(200, 130, 180, 0.12);
         }
 
         .product-thumb img {
@@ -373,8 +438,8 @@
             justify-content: center;
             flex-shrink: 0;
             font-size: 1.6rem;
-            background: rgba(147, 51, 234, 0.12);
-            border: 1px solid rgba(168, 85, 247, 0.15);
+            background: rgba(200, 130, 180, 0.08);
+            border: 1px solid rgba(200, 130, 180, 0.12);
         }
 
         .product-info {
@@ -407,13 +472,13 @@
 
         .product-link:hover .product-arrow {
             transform: translateX(4px);
-            color: var(--lilac-400);
+            color: var(--rose-300);
         }
 
         /* ===== FEATURED / HIGHLIGHT CARD ===== */
         .product-link.featured {
-            border-color: rgba(147, 51, 234, 0.3);
-            background: linear-gradient(135deg, rgba(147, 51, 234, 0.12) 0%, rgba(232, 121, 249, 0.06) 100%);
+            border-color: rgba(212, 116, 140, 0.25);
+            background: linear-gradient(135deg, rgba(212, 116, 140, 0.1) 0%, rgba(192, 132, 252, 0.05) 100%);
         }
 
         .product-link.featured::after {
@@ -424,17 +489,17 @@
             font-size: 0.6rem;
             font-weight: 700;
             color: #fff;
-            background: linear-gradient(135deg, #e879f9, var(--lilac-600));
+            background: linear-gradient(135deg, #d4748c, var(--lilac-500));
             padding: 3px 10px;
             border-radius: var(--radius-full);
             letter-spacing: 1px;
             z-index: 2;
-            animation: newPulse 2s ease-in-out infinite;
+            animation: newPulse 2.5s ease-in-out infinite;
         }
 
         @keyframes newPulse {
-            0%, 100% { box-shadow: 0 0 8px rgba(232, 121, 249, 0.4); }
-            50% { box-shadow: 0 0 20px rgba(232, 121, 249, 0.7); }
+            0%, 100% { box-shadow: 0 0 8px rgba(212, 116, 140, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(212, 116, 140, 0.6); }
         }
 
         /* ===== SOCIAL LINKS ===== */
@@ -465,7 +530,7 @@
         .social-btn:hover {
             transform: translateY(-3px);
             border-color: var(--border-glow);
-            color: var(--lilac-300);
+            color: var(--rose-300);
             box-shadow: var(--shadow-glow);
         }
 
@@ -483,16 +548,18 @@
         }
 
         .footer-brand {
-            font-family: var(--font-accent);
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: 500;
             color: var(--text-muted);
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
         .footer-brand a {
-            color: var(--lilac-400);
+            color: var(--rose-300);
             text-decoration: none;
+            font-family: var(--font-accent);
+            font-weight: 700;
+            font-size: 0.95rem;
         }
 
         .footer-line {
@@ -501,40 +568,7 @@
             margin: 12px auto 0;
             background: var(--gradient-main);
             border-radius: 2px;
-            opacity: 0.5;
-        }
-
-        /* ===== SPARKLE PARTICLES (CSS-only) ===== */
-        .sparkle-field {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .sparkle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: var(--lilac-300);
-            border-radius: 50%;
-            opacity: 0;
-            animation: sparkle 4s ease-in-out infinite;
-        }
-
-        .sparkle:nth-child(1) { top: 15%; left: 20%; animation-delay: 0s; }
-        .sparkle:nth-child(2) { top: 30%; left: 80%; animation-delay: 1s; }
-        .sparkle:nth-child(3) { top: 55%; left: 10%; animation-delay: 2s; }
-        .sparkle:nth-child(4) { top: 70%; left: 75%; animation-delay: 0.5s; }
-        .sparkle:nth-child(5) { top: 85%; left: 45%; animation-delay: 3s; }
-        .sparkle:nth-child(6) { top: 20%; left: 60%; animation-delay: 1.5s; }
-        .sparkle:nth-child(7) { top: 45%; left: 90%; animation-delay: 2.5s; }
-        .sparkle:nth-child(8) { top: 90%; left: 15%; animation-delay: 3.5s; }
-
-        @keyframes sparkle {
-            0%, 100% { opacity: 0; transform: scale(0.5); }
-            50% { opacity: 0.8; transform: scale(1.2); }
+            opacity: 0.4;
         }
 
         /* ===== ENTRANCE ANIMATIONS ===== */
@@ -560,16 +594,11 @@
         /* ===== RESPONSIVE ===== */
         @media (min-width: 480px) {
             .container {
-                padding: 56px 24px 72px;
+                padding: 48px 24px 72px;
             }
 
-            .brand-name {
-                font-size: 2rem;
-            }
-
-            .avatar-ring {
-                width: 130px;
-                height: 130px;
+            .logo-wrapper {
+                width: 240px;
             }
 
             .product-link {
@@ -604,7 +633,7 @@
         <div class="orb orb-3"></div>
     </div>
 
-    <!-- SPARKLE PARTICLES -->
+    <!-- SPARKLE PARTICLES (dots + four-pointed stars like the logo) -->
     <div class="sparkle-field">
         <div class="sparkle"></div>
         <div class="sparkle"></div>
@@ -614,17 +643,20 @@
         <div class="sparkle"></div>
         <div class="sparkle"></div>
         <div class="sparkle"></div>
+        <div class="sparkle star">✦</div>
+        <div class="sparkle star">✦</div>
+        <div class="sparkle star">✦</div>
+        <div class="sparkle star">✦</div>
     </div>
 
     <!-- MAIN CONTENT -->
     <main class="container">
 
-        <!-- PROFILE -->
+        <!-- LOGO -->
         <div class="profile fade-up">
-            <div class="avatar-ring">
-                <img src="logo.png" alt="Logo Jujuba Criativa" id="profile-logo" />
+            <div class="logo-wrapper">
+                <img src="logo.jpeg" alt="Jujuba Criativa - Produtos Personalizados em Impressão 3D" id="profile-logo" />
             </div>
-            <h1 class="brand-name">Jujuba Criativa</h1>
             <p class="brand-tagline">
                 Criamos produtos únicos e personalizados em 
                 <span class="emoji-3d">🖨️</span> impressão 3D. 
@@ -659,7 +691,7 @@
                 </div>
             </a>
 
-            <!-- PLACEHOLDER PRODUCTS – COMING SOON -->
+            <!-- PLACEHOLDER PRODUCTS -->
             <a href="#" class="product-link fade-up" id="product-chaveiro">
                 <div class="product-thumb-icon">🔑</div>
                 <div class="product-info">
