@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mineplate – Sua Placa do Minecraft na Vida Real</title>
+    <meta name="description"
+        content="Placa personalizada estilo Minecraft com o seu nome, produzida em impressão 3D. O presente perfeito para gamers." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap" rel="stylesheet" />
+
+    <style>
+        /* ===== RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #0e0e14;
+            --surface: #16161f;
+            --border: #2a2a3d;
+            --green: #5aaa1e;
+            --green-light: #7dd63e;
+            --green-dark: #3d7510;
+            --gold: #f0c030;
+            --diamond: #44ecf0;
+            --white: #e8e8e8;
+            --muted: #8888aa;
+            --red: #e04040;
+            --pixel: 'Press Start 2P', monospace;
+            --vt: 'VT323', monospace;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--white);
+            font-family: var(--vt);
+            overflow-x: hidden;
+            /* subtle pixel grid overlay */
+            background-image:
+                linear-gradient(rgba(255, 255, 255, .015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, .015) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        /* ===== DECORATIVE TOP BAR ===== */
+        .topbar {
+            width: 100%;
+            height: 8px;
+            background: repeating-linear-gradient(90deg,
+                    var(--green) 0px, var(--green) 32px,
+                    var(--green-dark) 32px, var(--green-dark) 64px);
+        }
+
+        /* ===== LOGO / TITLE ===== */
+        header {
+            text-align: center;
+            padding: 40px 24px 20px;
+        }
+
+        .site-logo {
+            display: inline-block;
+            font-family: var(--pixel);
+            font-size: clamp(1rem, 5vw, 1.6rem);
+            color: var(--green);
+            letter-spacing: 2px;
+            padding: 8px 16px;
+            border: 3px solid var(--green);
+            box-shadow: 4px 4px 0 var(--green-dark), 0 0 24px rgba(90, 170, 30, .35);
+            animation: pulse-border 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-border {
+
+            0%,
+            100% {
+                box-shadow: 4px 4px 0 var(--green-dark), 0 0 16px rgba(90, 170, 30, .3);
+            }
+
+            50% {
+                box-shadow: 4px 4px 0 var(--green-dark), 0 0 36px rgba(90, 170, 30, .65);
+            }
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 32px 24px 0;
+            max-width: 680px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            font-family: var(--pixel);
+            font-size: clamp(.45rem, 2.5vw, .65rem);
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            padding: 6px 12px;
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+            box-shadow: 3px 3px 0 #7a5c00;
+            text-shadow: none;
+        }
+
+        h1 {
+            font-family: var(--pixel);
+            font-size: clamp(1.1rem, 5.5vw, 2rem);
+            line-height: 1.55;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        h1 span {
+            color: var(--green);
+            text-shadow: 0 0 18px rgba(90, 170, 30, .7);
+        }
+
+        .hero-sub {
+            font-family: var(--vt);
+            font-size: clamp(1.3rem, 4.5vw, 1.7rem);
+            color: var(--muted);
+            line-height: 1.4;
+            margin-bottom: 36px;
+        }
+
+        /* ===== PRODUCT IMAGE ===== */
+        .product-frame {
+            position: relative;
+            max-width: 680px;
+            margin: 0 auto 48px;
+            padding: 0 16px;
+        }
+
+        .product-frame::before,
+        .product-frame::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 16px;
+            background: repeating-linear-gradient(180deg,
+                    #5aaa1e 0px, #5aaa1e 16px,
+                    #3d7510 16px, #3d7510 32px);
+        }
+
+        .product-frame::before {
+            left: 0;
+            border-right: 3px solid #000;
+        }
+
+        .product-frame::after {
+            right: 0;
+            border-left: 3px solid #000;
+        }
+
+        .product-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-top: 6px solid var(--green-dark);
+            border-bottom: 6px solid var(--green-dark);
+            image-rendering: auto;
+        }
+
+        /* ===== VIDEO ===== */
+        .section-label {
+            font-family: var(--pixel);
+            font-size: clamp(.45rem, 2.2vw, .6rem);
+            color: var(--diamond);
+            letter-spacing: 2px;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .video-wrapper {
+            max-width: 680px;
+            margin: 0 auto 56px;
+            padding: 0 16px;
+        }
+
+        .video-inner {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            border: 4px solid var(--border);
+            box-shadow: 0 0 0 2px #000, 8px 8px 0 rgba(0, 0, 0, .6);
+        }
+
+        .video-inner iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ===== FEATURES STRIP ===== */
+        .features {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 680px;
+            margin: 0 auto 56px;
+            padding: 0 16px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: var(--surface);
+            border: 2px solid var(--border);
+            border-left: 4px solid var(--green);
+            padding: 16px;
+            box-shadow: 4px 4px 0 rgba(0, 0, 0, .5);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+            width: 40px;
+            text-align: center;
+            filter: drop-shadow(0 0 8px rgba(90, 170, 30, .5));
+        }
+
+        .feature-text {
+            font-family: var(--vt);
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            color: var(--white);
+            line-height: 1.2;
+        }
+
+        /* ===== SUGGESTION BADGE ===== */
+        .suggestion-block {
+            max-width: 680px;
+            margin: 0 auto 20px;
+            padding: 0 16px;
+            text-align: center;
+        }
+
+        .suggestion-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #f0c030 0%, #c07800 100%);
+            color: #0e0e14;
+            font-family: var(--pixel);
+            font-size: clamp(.5rem, 3vw, .85rem);
+            padding: 14px 20px;
+            line-height: 1.7;
+            border: 3px solid #7a4e00;
+            box-shadow: 5px 5px 0 #3d2700, 0 0 32px rgba(240, 192, 48, .4);
+            text-shadow: none;
+            animation: gold-glow 2.5s ease-in-out infinite;
+        }
+
+        @keyframes gold-glow {
+
+            0%,
+            100% {
+                box-shadow: 5px 5px 0 #3d2700, 0 0 20px rgba(240, 192, 48, .3);
+            }
+
+            50% {
+                box-shadow: 5px 5px 0 #3d2700, 0 0 45px rgba(240, 192, 48, .65);
+            }
+        }
+
+        /* ===== CTA ZONE ===== */
+        .cta-zone {
+            max-width: 680px;
+            margin: 0 auto 16px;
+            padding: 36px 16px;
+            text-align: center;
+        }
+
+        .cta-hint {
+            font-family: var(--vt);
+            font-size: clamp(1rem, 3.5vw, 1.3rem);
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+        .cta-btn {
+            display: block;
+            width: 100%;
+            padding: 22px 12px;
+            font-family: var(--pixel);
+            font-size: clamp(.6rem, 3.5vw, 1rem);
+            line-height: 1.6;
+            text-decoration: none;
+            color: #fff;
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, .5);
+            background: linear-gradient(180deg, var(--green-light) 0%, var(--green) 50%, var(--green-dark) 100%);
+            border: 3px solid #000;
+            box-shadow:
+                inset 2px 2px 0 rgba(255, 255, 255, .25),
+                inset -2px -2px 0 rgba(0, 0, 0, .4),
+                6px 6px 0 rgba(0, 0, 0, .6),
+                0 0 40px rgba(90, 170, 30, .4);
+            cursor: pointer;
+            transition: transform .1s, box-shadow .1s, filter .1s;
+            letter-spacing: 1px;
+        }
+
+        .cta-btn:hover {
+            filter: brightness(1.12);
+            box-shadow:
+                inset 2px 2px 0 rgba(255, 255, 255, .25),
+                inset -2px -2px 0 rgba(0, 0, 0, .4),
+                6px 6px 0 rgba(0, 0, 0, .6),
+                0 0 60px rgba(90, 170, 30, .65);
+        }
+
+        .cta-btn:active {
+            transform: translate(4px, 4px);
+            box-shadow:
+                inset 2px 2px 0 rgba(255, 255, 255, .25),
+                inset -2px -2px 0 rgba(0, 0, 0, .4),
+                2px 2px 0 rgba(0, 0, 0, .6);
+        }
+
+        .cta-security {
+            margin-top: 14px;
+            font-family: var(--vt);
+            font-size: clamp(.9rem, 3vw, 1.1rem);
+            color: var(--muted);
+        }
+
+        .cta-security span {
+            color: var(--green);
+        }
+
+        /* ===== BOTTOM DECORATION ===== */
+        .bottombar {
+            width: 100%;
+            height: 8px;
+            background: repeating-linear-gradient(90deg,
+                    #3d7510 0px, #3d7510 32px,
+                    #29500b 32px, #29500b 64px);
+            margin-top: 24px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 16px 24px 32px;
+            font-family: var(--vt);
+            font-size: 1.1rem;
+            color: var(--border);
+        }
+
+        /* ===== RESPONSIVE DESKTOP ===== */
+        @media (min-width: 700px) {
+            .features {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .feature-item {
+                flex: 1 1 calc(50% - 6px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP PIXEL BAR -->
+    <div class="topbar"></div>
+
+    <!-- HEADER / LOGO -->
+    <header>
+        <div class="hero-tag">✦ EDIÇÃO ESPECIAL MINECRAFT ✦</div>
+    </header>
+
+    <!-- HERO TEXT -->
+    <section class="hero">
+        <h1>SEU NOME COM<br /><span>ESTILO</span></h1>
+        <p class="hero-sub">
+            Traga o game para a vida real com uma placa personalizada com o seu nome
+        </p>
+    </section>
+
+    <!-- VIDEO SECTION -->
+
+    <div class="video-wrapper">
+        <div class="video-inner">
+            <iframe src="https://www.youtube.com/embed/PX46V5vxdrc?autoplay=1&mute=1&loop=1&playlist=PX46V5vxdrc"
+                title="Vídeo demonstrativo Mineplate"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <p class="section-label">▶ VEJA COMO FUNCIONA</p>
+    <!-- FEATURES -->
+    <div class="features">
+        <div class="feature-item">
+            <div class="feature-icon">🖨️</div>
+            <div class="feature-text">Produzida em impressão 3D de alta precisão</div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">✍️</div>
+            <div class="feature-text">Você escolhe o nome — a gente cria</div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">📦</div>
+            <div class="feature-text">Entrega para todo o Brasil via Shopee</div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">🎮</div>
+            <div class="feature-text">Visual 100% fiel ao estilo Minecraft</div>
+        </div>
+    </div>
+
+    <!-- PRODUCT IMAGE -->
+    <div class="product-frame">
+        <img src="arthur.jpg" alt="Placa personalizada estilo Minecraft com nome em impressão 3D" />
+    </div>
+
+    <!-- SUGGESTION BADGE -->
+    <div class="suggestion-block">
+        <div class="suggestion-badge">🏆 O MELHOR PRESENTE<br />PARA UM GAMER</div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-zone">
+        <p class="cta-hint">👇 Clique abaixo e personalize a sua</p>
+        <!-- Substitua # pela URL do produto na Shopee -->
+        <a href="#" id="cta-button" class="cta-btn">
+            🧱 EU QUERO A MINHA PLACA
+        </a>
+        <p class="cta-security">
+            <span>✔ Compra segura</span> · Shopee · Entrega garantida
+        </p>
+    </div>
+
+    <!-- BOTTOM BAR + FOOTER -->
+    <div class="bottombar"></div>
+    <footer>&copy; 2025 Mineplate · Todos os direitos reservados</footer>
+
+</body>
+
+</html>
