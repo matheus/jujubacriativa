@@ -12,6 +12,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap" rel="stylesheet" />
 
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1993139711562865'); // SUBSTITUA AQUI PELO SEU ID
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1993139711562865&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
+
     <style>
         /* ===== RESET & BASE ===== */
         *,
@@ -450,6 +470,13 @@
     <div class="bottombar"></div>
     <footer>&copy; 2025 Mineplate · Todos os direitos reservados</footer>
 
+    <!-- Script para Rastrear Clique no CTA -->
+    <script>
+        document.getElementById('cta-button').addEventListener('click', function () {
+            // Usa 'InitiateCheckout' (Iniciar Checkout) pois o usuário está indo para a Shopee
+            fbq('track', 'InitiateCheckout');
+        });
+    </script>
 </body>
 
 </html>
